@@ -1,14 +1,17 @@
 import React, { useReducer, createContext } from "react";
 import axios from "axios";
+import currReducer from "./currReducer";
 
 import contextReducer from "./contextReducer";
 
 const initialState = JSON.parse(localStorage.getItem("transactions")) || [];
+const init = [];
 
 export const ExpenseTrackerContext = createContext(initialState);
 
 export const Provider = ({ children }) => {
   const [transactions, dispatch] = useReducer(contextReducer, initialState);
+  const [Currency, Dispatch] = useReducer(currReducer, init);
 
   async function getTransactions(uid) {
     try {
@@ -57,6 +60,10 @@ export const Provider = ({ children }) => {
     }
   }
 
+  async function setCurr(value) {
+    Dispatch({ type: "SET_CURRENCY", payload: value });
+  }
+
   const balance = transactions.reduce(
     (acc, currVal) =>
       currVal.type === "Expense" ? acc - currVal.amount : acc + currVal.amount,
@@ -66,6 +73,8 @@ export const Provider = ({ children }) => {
   return (
     <ExpenseTrackerContext.Provider
       value={{
+        setCurr,
+        Currency,
         transactions,
         balance,
         getTransactions,

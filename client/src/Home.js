@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import { Grid, Button } from "@material-ui/core";
+import CurrencySelector from "./components/CurrencySelector";
 
 //importing the logout button
 import { useAuth } from "../../client/src/context/AuthContext";
@@ -34,6 +35,7 @@ function Home() {
       <Button variant="contained" color="secondary" onClick={logout}>
         Log Out
       </Button>
+      <CurrencySelector />
       <Grid
         className={classes.grid}
         container

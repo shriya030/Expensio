@@ -10,13 +10,13 @@ import{formatAmount} from '../../utils/formatAmount'
 
 const ExpenseTracker = () => {
   const classes = useStyles();
-  const { balance } = useContext(ExpenseTrackerContext);
+  const { balance, Currency } = useContext(ExpenseTrackerContext);
 
   return (
     <Card className={classes.root}>
       <CardHeader title="Expense Tracker" subheader="Powered by Speechly" />
       <CardContent>
-        <Typography align="center" variant="h5">Total Balance ${formatAmount(balance)}</Typography>
+        <Typography align="center" variant="h5">Total Balance {Currency} {formatAmount(balance)}</Typography>
         <Typography variant="subtitle1" style={{ lineHeight: '1.5em', marginTop: '20px' }}>
           <InfoCard />
         </Typography>

@@ -137,13 +137,14 @@ const initialState={
   userID:'',
   amount:'',
   category:'',
-  type:'Income'
+  type:'Income',
+  description:'N/A'
 };
 
 function Form() {
   const classes = useStyles();
 
-  const{addTransaction, balance} = useContext(ExpenseTrackerContext);
+  const{addTransaction, Currency, balance} = useContext(ExpenseTrackerContext);
   const [formData, setFormData]= useState(initialState);
 
   //this segment is used to extract the speech
@@ -245,6 +246,7 @@ function Form() {
       <InputLabel>Date</InputLabel>
         <TextField fullWidth type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value})} />
       </Grid>
+<TextField type="String" label="Additional Notes (Optional) " fullWidth value={formData.description} onChange={(e)=>setFormData({...formData,description:e.target.value})}/>
       <Button className={classes.button} variant="outlined" color="primary" fullWidth onClick={createTransaction}>Create</Button>
     </Grid>
   )

@@ -11,7 +11,7 @@ import { CSVLink } from "react-csv";
 
 const List = () => {
   const classes = useStyles();
-  const { transactions, deleteTransaction, getTransactions } = useContext(ExpenseTrackerContext);
+  const { transactions, deleteTransaction, getTransactions, Currency } = useContext(ExpenseTrackerContext);
   const { currentUser } = useAuth();
 
   useEffect(() => {
@@ -24,7 +24,8 @@ const List = () => {
     {label: 'Type', key: 'type'},
     {label: 'Category', key: 'category'},
     {label: 'Amount', key: 'amount'},
-    {label: 'Date', key: 'date'}
+    {label: 'Date', key: 'date'},
+    {label: "Description", key: 'description'}
   ];
 
   const csvReport = {
@@ -45,7 +46,9 @@ const List = () => {
                 <MoneyOff />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary={transaction.category} secondary={`$${formatAmount(transaction.amount)} - ${transaction.date}`} />
+            <ListItemText primary={transaction.category} secondary={`${Currency}${(transaction.amount)} : ${transaction.description===''?transaction.description:""} ${
+                  transaction.date
+                }`} />
             <ListItemSecondaryAction>
               <IconButton edge="end" aria-label="delete" onClick={() => deleteTransaction(transaction._id)}>
                 <Delete />
