@@ -23,6 +23,7 @@ coverage
 *.lcov
 
 firebase.js
+config.env
 
 # nyc test coverage
 .nyc_output

@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Form, Button, Card, Alert } from "react-bootstrap";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import currencies from "./currencies.json";
 
 export default function Signup() {
   const emailRef = useRef();
@@ -11,6 +12,7 @@ export default function Signup() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
+  const currencyRef = useRef();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -51,6 +53,24 @@ export default function Signup() {
               <Form.Label>Password Confirmation</Form.Label>
               <Form.Control type="password" ref={passwordConfirmRef} required />
             </Form.Group>
+            {/* <Form.Group id="currency">
+              <FormControl fullWidth>
+                <InputLabel>Currency</InputLabel>
+                <Select
+                  value={formData.category}
+                  onChange={e =>
+                    setFormData({ ...formData, category: e.target.value })
+                  }
+                >
+                  {for(const symbol in currencies)
+                    <MenuItem key={symbol} value={currencies[symbol]}>
+                      {symbol}
+                    </MenuItem>
+                  }
+                </Select>
+              </FormControl>
+            </Form.Group> */}
+
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
             </Button>
