@@ -15,6 +15,7 @@
     "chart.js": "^2.9.4",
     "dotenv": "^9.0.2",
     "firebase": "^8.6.1",
+    "particles-bg": "^2.5.5",
     "react": "^17.0.1",
     "react-bootstrap": "^1.6.0",
     "react-chartjs-2": "^2.11.1",
@@ -22,6 +23,8 @@
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-tsparticles": "^1.27.0",
+    "react-typed": "^1.2.0",
     "uuid": "^8.3.1",
     "web-vitals": "^0.2.4"
   },

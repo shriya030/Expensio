@@ -1,0 +1,27 @@
+.id {
+  color: #603f83ff;
+}
+.navbar {
+  z-index: 100;
+}
+
+.particles {
+  width: 100vw;
+  position: fixed;
+  height: 100vh;
+  z-index: -1;
+}
+
+.navbar-brand {
+  margin-left: 30px;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.bg-particles {
+  background-color: white;
+}
+
+.navbar-nav {
+  margin-left: 80%;
+}

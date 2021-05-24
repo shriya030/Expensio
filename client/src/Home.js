@@ -1,65 +1,97 @@
-import React, { useEffect, useRef } from "react";
-import { Grid, Button } from "@material-ui/core";
-import CurrencySelector from "./components/CurrencySelector";
-
-//importing the logout button
-import { useAuth } from "../../client/src/context/AuthContext";
-
-import { SpeechState, useSpeechContext } from "@speechly/react-client";
-import {
-  PushToTalkButton,
-  PushToTalkButtonContainer
-} from "@speechly/react-ui";
-
-import Details from "./components/Details/Details";
-import Main from "./components/Main/Main";
-import useStyles from "./styles";
+import React from "react";
+import NavBar from "./components/HomePage/NavBar";
+import Banner from "./components/HomePage/Banner";
+import Footer from "./components/HomePage/Footer";
 
 function Home() {
-  const classes = useStyles();
-  const { speechState } = useSpeechContext();
-  const main = useRef(null);
-
-  const executeScroll = () => main.current.scrollIntoView();
-
-  useEffect(() => {
-    if (speechState === SpeechState.Recording) {
-      executeScroll();
-    }
-  }, [speechState]);
-
-  const { logout } = useAuth();
-
   return (
     <div>
-      <Button variant="contained" color="secondary" onClick={logout}>
-        Log Out
-      </Button>
-      <CurrencySelector />
-      <Grid
-        className={classes.grid}
-        container
-        spacing={0}
-        alignItems="center"
-        justify="center"
-        style={{ height: "100vh" }}
-      >
-        <Grid item xs={12} sm={4} className={classes.mobile}>
-          <Details title="Income" />
-        </Grid>
-        <Grid ref={main} item xs={12} sm={3} className={classes.main}>
-          <Main />
-        </Grid>
-        <Grid item xs={12} sm={4} className={classes.desktop}>
-          <Details title="Income" />
-        </Grid>
-        <Grid item xs={12} sm={4} className={classes.last}>
-          <Details title="Expense" />
-        </Grid>
-        <PushToTalkButtonContainer>
-          <PushToTalkButton />
-        </PushToTalkButtonContainer>
-      </Grid>
+      {/* <div classname="particles">
+        <Particles
+          id="tsparticles"
+          options={{
+            background: {
+              color: {
+                value: "#ffffff"
+              }
+            },
+            fpsLimit: 60,
+            interactivity: {
+              detectsOn: "canvas",
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: "push"
+                },
+                onHover: {
+                  enable: true,
+                  mode: "repulse"
+                },
+                resize: true
+              },
+              modes: {
+                bubble: {
+                  distance: 400,
+                  duration: 2,
+                  opacity: 0.8,
+                  size: 40
+                },
+                push: {
+                  quantity: 4
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4
+                }
+              }
+            },
+            particles: {
+              color: {
+                value: "#ff0800"
+              },
+              links: {
+                color: "#ff0800",
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1
+              },
+              collisions: {
+                enable: true
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outMode: "bounce",
+                random: false,
+                speed: 6,
+                straight: false
+              },
+              number: {
+                density: {
+                  enable: true,
+                  value_area: 800
+                },
+                value: 80
+              },
+              opacity: {
+                value: 0.5
+              },
+              shape: {
+                type: "circle"
+              },
+              size: {
+                random: true,
+                value: 5
+              }
+            },
+            detectRetina: true
+          }}
+        />
+      </div> */}
+      <NavBar />
+      <Banner />
+      <Footer />
     </div>
   );
 }

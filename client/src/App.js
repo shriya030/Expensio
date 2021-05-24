@@ -30,37 +30,34 @@
 
 import React from "react";
 import Signup from "./components/Auth/Signup";
-import { Container } from "react-bootstrap";
 import { AuthProvider } from "./context/AuthContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "./components/Auth/Dashboard";
 import Login from "./components/Auth/Login";
 import PrivateRoute from "./components/Auth/PrivateRoute";
 import ForgotPassword from "./components/Auth/ForgotPassword";
 import UpdateProfile from "./components/Auth/UpdateProfile";
+import Dashboard from "./Dashboard";
 import Home from "./Home";
 
 function App() {
+  {
+    /* className="w-100" style={{ maxWidth: "400px" }} */
+  }
   return (
-    <Container
-      className="d-flex align-items-center justify-content-center"
-      style={{ minHeight: "100vh" }}
-    >
-      {/* className="w-100" style={{ maxWidth: "400px" }} */}
-      <div>
-        <Router>
-          <AuthProvider>
-            <Switch>
-              <PrivateRoute exact path="/" component={Home} />
-              <PrivateRoute path="/update-profile" component={UpdateProfile} />
-              <Route path="/signup" component={Signup} />
-              <Route path="/login" component={Login} />
-              <Route path="/forgot-password" component={ForgotPassword} />
-            </Switch>
-          </AuthProvider>
-        </Router>
-      </div>
-    </Container>
+    <div>
+      <Router>
+        <AuthProvider>
+          <Switch>
+            <Route path="/home" component={Home} />
+            <PrivateRoute exact path="/" component={Dashboard} />
+            <PrivateRoute path="/update-profile" component={UpdateProfile} />
+            <Route path="/signup" component={Signup} />
+            <Route path="/login" component={Login} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+          </Switch>
+        </AuthProvider>
+      </Router>
+    </div>
   );
 }
 

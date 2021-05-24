@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Button, Alert } from "react-bootstrap";
 import { useAuth } from "../../context/AuthContext";
 import { Link, useHistory } from "react-router-dom";
+import "./Dashboard.css";
 
 export default function Dashboard() {
   const [error, setError] = useState("");
@@ -13,7 +14,7 @@ export default function Dashboard() {
 
     try {
       await logout();
-      history.push("/login");
+      history.push("/home");
     } catch {
       setError("Failed to log out");
     }
@@ -32,7 +33,7 @@ export default function Dashboard() {
         </Card.Body>
       </Card>
       <div className="w-100 text-center mt-2">
-        <Button variant="link" onClick={handleLogout}>
+        <Button className="logout-btn" variant="link" onClick={handleLogout}>
           Log Out
         </Button>
       </div>
