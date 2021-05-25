@@ -75,7 +75,8 @@ function Dashboard() {
           <Grid item xs={12} sm={4} className={classes.last}>
             <Details title="Expense" />
           </Grid>
-          <PushToTalkButtonContainer>
+
+          <PushToTalkButtonContainer style={{ top: "90vh" }}>
             <PushToTalkButton />
           </PushToTalkButtonContainer>
         </Grid>

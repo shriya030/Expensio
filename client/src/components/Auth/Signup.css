@@ -9,12 +9,27 @@
   border-color: #603f83ff;
 }
 
+.text a {
+  color: #f5c7b8ff;
+}
+
+.forgotpassword a:hover {
+  font-style: oblique;
+  color: #f5c7b8ff;
+}
+
+.text a:hover {
+  font-style: oblique;
+  color: #f5c7b8ff;
+}
+
 .text {
   color: white;
 }
 
 .signup .btn-signup:hover {
-  background-color: #c7d3d4ff;
+  background-color: #f5c7b8ff;
+  border: #f5c7b8ff;
   color: #603f83ff;
   font-weight: bold;
 }

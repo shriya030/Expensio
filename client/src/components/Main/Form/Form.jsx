@@ -138,7 +138,7 @@ const initialState={
   amount:'',
   category:'',
   type:'Income',
-  description:'N/A'
+  description:''
 };
 
 function Form() {

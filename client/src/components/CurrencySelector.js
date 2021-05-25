@@ -15,9 +15,10 @@ import { currencies } from "../constants/Currencies";
 function CurrencySelector() {
   const { setCurr } = useContext(ExpenseTrackerContext);
   return (
-    <div style={{ marginLeft: "3%" }}>
-      <InputLabel>Select Your Currency</InputLabel>
+    <div style={{ marginLeft: "3%", color: "white" }}>
+      <InputLabel style={{ color: "white" }}>Select Your Currency</InputLabel>
       <Select
+        style={{ color: "white" }}
         onChange={e => {
           setCurr(e.target.value);
         }}
