@@ -191,7 +191,8 @@ function Form() {
             }
             break;
           case 'date':
-            setFormData({ ...formData, date: formatDate(s.value) });
+            console.log("Date: " + s.value);
+            setFormData({ ...formData, date: s.value.split("-").reverse().join("-") });
             break;
           default:
             break;

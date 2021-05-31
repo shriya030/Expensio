@@ -48,8 +48,8 @@ function App() {
       <Router>
         <AuthProvider>
           <Switch>
-            <Route path="/home" component={Home} />
-            <PrivateRoute exact path="/" component={Dashboard} />
+            <Route exact path="/" component={Home} />
+            <PrivateRoute path="/dashboard" component={Dashboard} />
             <PrivateRoute path="/update-profile" component={UpdateProfile} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
